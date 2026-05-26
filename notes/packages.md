@@ -2,8 +2,9 @@
 ## Terminal
 - zsh
 - ghostty
+- starship
 - btop
-- 
+- fastfetch 
 
 ## Development
 - nodejs
@@ -13,3 +14,9 @@
 - laravel
 - python
 
+## Apps
+- VsCode
+- Obsidian
+
+## Themes
+- 
