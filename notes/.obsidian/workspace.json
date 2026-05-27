@@ -35,8 +35,7 @@
               "title": "auto-start"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -199,14 +198,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "4db441791776a92d",
+  "active": "e6fc08474c787947",
   "lastOpenFiles": [
+    "hyprland/auto-start.md",
     "hyprland/waybar.md",
     "terminal/tmux.md",
     "hyprland/commands.md",
     "arch/commands.md",
     "terminal/starship.md",
-    "hyprland/auto-start.md",
     "arch",
     "terminal",
     "terminal/zsh.md",
