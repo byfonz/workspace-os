@@ -1,0 +1,1 @@
+For a better UX we used #waybar as main app bar, this package allow us to highly customize the style and experience.
