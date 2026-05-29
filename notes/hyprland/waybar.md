@@ -1,4 +1,4 @@
-#Purpose 
+#Overview  
 Waybar is a customizable status bar for Wayland desktops, it shows key information like workspaces, battery, network and volume in one place.
 
 #Installation 

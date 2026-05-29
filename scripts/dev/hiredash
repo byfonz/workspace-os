@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# -----------------------------
+# Variables
+# -----------------------------
+set -e
+
+SESSION="hiredash"
+PROJECT_DIR="$HOME/Workspace/hiredash"
+FRONTEND_DIR="$PROJECT_DIR/hiredash.com"
+BACKEND_DIR="$PROJECT_DIR/api.hiredash.com"
+ATS_DIR="$PROJECT_DIR/api.hiredash.com"
+
+# TMUX Session
+tmux new-session -s $SESSION -c $PROJECT_DIR
+
+# -----------------------------
+# Frontend Pane
+# -----------------------------
+tmux send-keys -t $SESSION "
+pnpm dev
+" C-m
+
+
+# -----------------------------
+# Laravel Pane
+# -----------------------------
+tmux split-window -v
+tmux send-keys -t $SESSION "
+clear
+php artisan --host=localhost --port=8000
+" C-m
+
+# -----------------------------
+# FastAPI Pane
+# -----------------------------
+tmux send-keys -t $SESSION "
+clear
+uvicorn main:app --reload
+" C-m
+
+# -----------------------------
+# TMUX Layout
+# -----------------------------
+tmux select-layout -t $SESSION tiled
+
+# -----------------------------
+# Launch VsCode
+# -----------------------------
+code ~/Workspace/hiredash
+
+# -----------------------------
+# Launch Browser
+# -----------------------------
+brave http://localhost:3000 &
+brave http://localhost:8000/docs &
+
+# -----------------------------
+# Launch TMUX
+# -----------------------------
+ghostty --hold -e tmux attach -t $SESSION &
+
+
