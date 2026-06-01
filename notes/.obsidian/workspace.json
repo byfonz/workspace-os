@@ -4,38 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "a20ef2c34ec45d31",
+        "id": "9f0246f45e25b86c",
         "type": "tabs",
         "children": [
           {
-            "id": "c46aed5cdc05d859",
+            "id": "935abe1b25e4b9ed",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "terminal/scripts.md",
+                "file": "terminal/lazyvim.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "scripts"
+              "title": "lazyvim"
             }
           },
           {
-            "id": "ee52528c3d2f50e8",
+            "id": "f248412e7556ef7f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "stow.md",
+                "file": "terminal/gnu-stow.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "stow"
+              "title": "gnu-stow"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -67,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Installation",
+                "query": "tag:#laravel",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -88,8 +89,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -199,11 +199,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "c46aed5cdc05d859",
+  "active": "f248412e7556ef7f",
   "lastOpenFiles": [
-    "stow.md",
+    "e.md",
+    "terminal/lazyvim.md",
+    "terminal/gnu-stow.md",
     "terminal/scripts.md",
     "terminal/tmux.md",
+    "packages.md",
+    "Untitled.md",
+    "setup.md",
+    "stow.md",
     "terminal/zsh.md",
     "quickshell/components.md",
     "zsh/aliases.md",
@@ -222,14 +228,11 @@
     "arch",
     "terminal",
     "git-commands.md",
-    "packages.md",
     "hyprland/config.md",
     "hyprland/windows.md",
     "hyprland/workspaces.md",
-    "setup.md",
     "sway",
     "Troubleshooting",
-    "hyprland/displaylink.md",
     "hyprland"
   ]
 }

@@ -6,58 +6,51 @@
 set -e
 
 SESSION="hiredash"
+SESSION_EDITOR="editor"
 PROJECT_DIR="$HOME/Workspace/hiredash"
 FRONTEND_DIR="$PROJECT_DIR/hiredash.com"
 BACKEND_DIR="$PROJECT_DIR/api.hiredash.com"
-ATS_DIR="$PROJECT_DIR/api.hiredash.com"
-
-# TMUX Session
-tmux new-session -s $SESSION -c $PROJECT_DIR
+ATS_DIR="$PROJECT_DIR/services.hiredash.com"
 
 # -----------------------------
-# Frontend Pane
+# Tmux Session Servers
 # -----------------------------
-tmux send-keys -t $SESSION "
-pnpm dev
-" C-m
+tmux new-session -d -s $SESSION -c $PROJECT_DIR
 
+tmux new-window -t $SESSION:1 -n "Frontend" -c $FRONTEND_DIR
+tmux send-keys -t $SESSION:1 "pnpm dev" C-m
 
-# -----------------------------
-# Laravel Pane
-# -----------------------------
-tmux split-window -v
-tmux send-keys -t $SESSION "
-clear
-php artisan --host=localhost --port=8000
-" C-m
+tmux new-window -t $SESSION:2 -n "Laravel" -c $BACKEND_DIR
+tmux send-keys -t $SESSION:2 "php artisan serve --host=localhost --port=8000" C-m
 
-# -----------------------------
-# FastAPI Pane
-# -----------------------------
-tmux send-keys -t $SESSION "
-clear
-uvicorn main:app --reload
-" C-m
-
-# -----------------------------
-# TMUX Layout
+tmux new-window -t $SESSION:3 -n "FastAPI" -c $ATS_DIR
+# tmux send-keys -t $SESSION:3 "clear uvicorn main:app --reload" C-m
 # -----------------------------
 tmux select-layout -t $SESSION tiled
 
 # -----------------------------
-# Launch VsCode
+# Tmux Session IDE
 # -----------------------------
-code ~/Workspace/hiredash
+tmux new-session -d -s $SESSION_EDITOR -c $PROJECT_DIR
+
+tmux new-window -t $SESSION_EDITOR:4 -n "Frontend Editor"
+tmux send-keys -t $SESSION_EDITOR:4 "nvim $FRONTEND_DIR" C-m
+
+tmux new-window -t $SESSION_EDITOR:5 -n "Laravel Editor"
+tmux send-keys -t $SESSION_EDITOR:5 "nvim $BACKEND_DIR" C-m
+
+tmux new-window -t $SESSION_EDITOR:6 -n "FastAPI Editor"
+tmux send-keys -t $SESSION_EDITOR:6 "nvim $ATS_DIR" C-m
 
 # -----------------------------
 # Launch Browser
 # -----------------------------
-brave http://localhost:3000 &
-brave http://localhost:8000/docs &
+brave --new-window http://localhost:3000 &
+brave http://localhost:8000/
 
 # -----------------------------
-# Launch TMUX
+# Launch Termial
 # -----------------------------
-ghostty --hold -e tmux attach -t $SESSION &
-
+ghostty -e tmux attach -t $SESSION &
+ghostty -e tmux attach -t $SESSION_EDITOR &
 

@@ -1,0 +1,3 @@
+file ~/.config/ghostty/themes /home/ponchoio/.config/ghostty/themes: ASCII text
+
+ls -la ~/.config/ghostty total 12 drwxr-xr-x 1 ponchoio ponchoio 74 May 30 23:06 . drwxr-xr-x 1 ponchoio ponchoio 1466 May 30 12:41 .. -rw-r--r-- 1 ponchoio ponchoio 16 May 30 23:06 config -rw-r--r-- 1 ponchoio ponchoio 0 May 26 14:33 config.ghostty -rw------- 1 ponchoio ponchoio 1 May 30 22:50 config.save -rw-r--r-- 1 ponchoio ponchoio 17 May 30 22:56 themes

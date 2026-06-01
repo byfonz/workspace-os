@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+
+SESSION="desktop_monitor"
+
+# -----------------------------
+# TMUX Session
+# -----------------------------
+tmux new-session -d -s $SESSION -c $PROJECT_DIR
+
+# -----------------------------
+# BTOP Pane
+# -----------------------------
+tmux send-keys -t $SESSION "btop" C-m
+
+# -----------------------------
+# FastFetch Pane
+# -----------------------------
+tmux send-keys -t $SESSION "fastfetch" C-m
+
+# -----------------------------
+# Launch VsCode
+# -----------------------------
+ghostty -e tmux attach-session -t $SESSION
+
