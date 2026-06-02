@@ -26,12 +26,9 @@ require("monitors")
 ---------------------
 
 -- Set programs that you use
-local terminal = "ghostty"
 local fileManager = "dolphin"
 local menu = "rofi -show run"
-local fastfetch = "fastfetch"
-local btop = "btop"
-local quickshell = "qs"
+local terminal = "ghostty"
 
 -------------------
 ---- AUTOSTART ----
@@ -44,9 +41,7 @@ local quickshell = "qs"
 --
 hl.on("hyprland.start", function()
 	hl.exec_cmd(terminal)
-	hl.exec_cmd(fastfetch)
-	hl.exec_cmd(btop)
-	hl.exec_cmd(quickshell)
+	hl.exec_cmd("waybar & hyprpaper & firefox") 
 end)
 
 -------------------------------
