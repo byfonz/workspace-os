@@ -7,6 +7,7 @@ set -e
 
 SESSION="hiredash"
 SESSION_EDITOR="editor"
+SESSION_GIT="git"
 PROJECT_DIR="$HOME/Workspace/hiredash"
 FRONTEND_DIR="$PROJECT_DIR/hiredash.com"
 BACKEND_DIR="$PROJECT_DIR/api.hiredash.com"
@@ -43,14 +44,20 @@ tmux new-window -t $SESSION_EDITOR:6 -n "FastAPI Editor"
 tmux send-keys -t $SESSION_EDITOR:6 "nvim $ATS_DIR" C-m
 
 # -----------------------------
+# Tmux Session Git
+# -----------------------------
+tmux new-session -d -s $SESSION_GIT -c $PROJECT_DIR
+
+# -----------------------------
 # Launch Browser
 # -----------------------------
 brave --new-window http://localhost:3000 &
-brave http://localhost:8000/
+brave http://localhost:8000/ &
+brave https://github.com/byfonz/hiredash
 
 # -----------------------------
 # Launch Termial
 # -----------------------------
 ghostty -e tmux attach -t $SESSION &
 ghostty -e tmux attach -t $SESSION_EDITOR &
-
+ghostty -e tmux attach -t $SESSION_GIT
