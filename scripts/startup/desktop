@@ -2,7 +2,7 @@
 
 set -e
 
-SESSION="desktop_monitor"
+SESSION="system_monitor"
 
 # -----------------------------
 # TMUX Session
@@ -23,4 +23,3 @@ tmux send-keys -t $SESSION "fastfetch" C-m
 # Launch VsCode
 # -----------------------------
 ghostty -e tmux attach-session -t $SESSION
-

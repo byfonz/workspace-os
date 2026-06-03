@@ -8,6 +8,9 @@
 -- You can (and should!!) split this configuration into multiple files
 -- Create your files separately and then require them like this:
 -- require("myColors")
+require("monitors")
+require("workspaces")
+require("autostart") 
 
 -- Force correct GPU order (VERY IMPORTANT)
 --hl.env("AQ_DRM_DEVICES", "/dev/dri/by-path/pci-0000:01:00.0-card")
@@ -19,31 +22,9 @@
 ------------------
 ---- MONITORS ----
 ------------------
-require("monitors")
-require("workspaces")
-
----------------------
----- MY PROGRAMS ----
----------------------
-
--- Set programs that you use
 local fileManager = "dolphin"
 local menu = "rofi -show run"
 local terminal = "ghostty"
-
--------------------
----- AUTOSTART ----
--------------------
-
--- See https://wiki.hypr.land/Configuring/Basics/Autostart/
-
--- Autostart necessary processes (like notifications daemons, status bars, etc.)
--- Or execute your favorite apps at launch like this:
---
-hl.on("hyprland.start", function()
-  hl.exec_cmd(terminal)
-  hl.exec_cmd("waybar & hyprpaper & brave")
-end)
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
