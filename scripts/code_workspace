@@ -6,24 +6,23 @@ SESSION="code"
 PROJECT="$HOME/Workspace"
 
 # -----------------------------
-# TMUX Session
-# -----------------------------
-tmux new -d -s $SESSION -c $PROJECT
-
-tmux splitw -h -t "$SESSION":0
-tmux splitw -v -t "$SESSION":0.1
-
-tmux selectp -T "ide" -t "$SESSION":0.0
-tmux selectp -T "server" -t "$SESSION":0.1
-tmux selectp -T "terminal" -t "$SESSION":0.2
-
-# -----------------------------
-# LazyVim Pane
-# -----------------------------
-tmux resize-pane -t "$SESSION":0.0 -x 96%
-tmux send -t "$SESSION":0.0 "nvim" C-m
-
-# -----------------------------
-# FastFetch Pane
+# NVIM IDE
 # ----------------------------
-tmux attach-session -t "$SESSION"
+ghostty -e nvim "$PROJECT" &
+
+# -----------------------------
+# TMUX Session
+# ----------------------------
+ghostty -e tmux new -A -s $SESSION -c $PROJECT &
+tmux neww -t "$SESSION" -n "servers" &
+tmux splitw -v -t "$SESSION" &
+
+# -----------------------------
+# Git Sessions
+# ----------------------------
+ghostty --working-directory="$PROJECT" &
+
+# -----------------------------
+# Yazi
+# ----------------------------
+ghostty -e yazi
