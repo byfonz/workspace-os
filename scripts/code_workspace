@@ -4,25 +4,40 @@ set -e
 
 SESSION="code"
 PROJECT="$HOME/Workspace"
+LOCALHOST_FRONTEND="http://localhost:3000"
+LOCALHOST_BACKEND="http://localhost:8000"
+REPOSITORY="https://github.com/repos"
 
 # -----------------------------
 # NVIM IDE
 # ----------------------------
-ghostty -e nvim "$PROJECT" &
+create_tmux_session() {
+  if tmux has-session -t "$SESSION" 2>/dev/null; then
+    return
+  fi
 
-# -----------------------------
-# TMUX Session
-# ----------------------------
-ghostty -e tmux new -A -s $SESSION -c $PROJECT &
-tmux neww -t "$SESSION" -n "servers" &
-tmux splitw -v -t "$SESSION" &
+  tmux new-session -d -s "$SESSION" -c "$PROJECT" -n "frontend"
+  tmux new-window -t "$SESSION" -n "backend" -c "$PROJECT"
+  tmux new-window -t "$SESSION" -n "git" -c "$PROJECT"
+  tmux split-window -v -t "$SESSION":frontend -c "$PROJECT"
+  tmux split-window -v -t "$SESSION":backend -c "$PROJECT"
+}
 
-# -----------------------------
-# Git Sessions
-# ----------------------------
-ghostty --working-directory="$PROJECT" &
+launch_editor() {
+  ghostty --working-directory="$PROJECT" -e nvim &
+}
 
-# -----------------------------
-# Yazi
-# ----------------------------
-ghostty -e yazi
+launch_tmux() {
+  ghostty --working-directory="$PROJECT" -e tmux attach-session -t "$SESSION" &
+}
+
+launch_browser() {
+  brave --new-window "$LOCALHOST_FRONTEND"
+  brave --new-tab "$LOCALHOST_BACKEND"
+  brave --new-tab "$REPOSITORY" &
+}
+
+create_tmux_session
+launch_editor
+launch_tmux
+launch_browser

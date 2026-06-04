@@ -5,9 +5,9 @@ set -e
 DIR="$HOME/Workspace/"
 PROJECT="$1"
 
-cd "$DIR"
-echo "$PROJECT"
-mkdir -p "$PROJECT"
-pnpm create next-app "$PROJECT" --yes
-cd "$PROJECT"
-pnpm dlx shadcn@latest init &
+cd "$DIR" &
+echo "$PROJECT" &
+mkdir -p "$PROJECT" &
+pnpm create next-app "$PROJECT" --yes &
+cd "$PROJECT" &
+pnpm dlx shadcn@latest init 
