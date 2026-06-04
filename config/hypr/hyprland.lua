@@ -10,7 +10,7 @@
 -- require("myColors")
 require("monitors")
 require("workspaces")
-require("autostart") 
+require("autostart")
 
 -- Force correct GPU order (VERY IMPORTANT)
 --hl.env("AQ_DRM_DEVICES", "/dev/dri/by-path/pci-0000:01:00.0-card")
@@ -96,9 +96,12 @@ hl.config({
 
     blur = {
       enabled = true,
-      size = 8,
+      size = 10,
       passes = 1,
-      vibrancy = 0.1696,
+      new_optimizations = true,
+      ignore_opacity = true,
+      noise = 0,
+      brightness = 0.60,
     },
   },
 
