@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+set -e 
+local CHATGPT = "https://chatgpt.com"
+local DOCS_LARAVEL = "https://laravel.com/docs/13.x"
+
+launch_obsidian(){
+    obsidian "obsidian://open?vault=notes" &
+}
+
+launch_broswer(){
+    brave --new-window "$CHATGPT" &
+    brave --new-tab "$DOCS_LARAVEL"
+  }
+
+main(){
+    launch_obsidian
+    launch_broswer
+}
+
+main

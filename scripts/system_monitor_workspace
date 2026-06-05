@@ -1,0 +1,18 @@
+#!/bin/zsh
+
+set -e
+
+launch_btop(){
+  ghostty -e "btop" C-m
+}
+
+launch_fastfetch(){
+    ghostty -e "fastfetch" C-m 
+}
+
+main() {
+    launch_btop
+    launch_fastfetch
+}
+
+main
