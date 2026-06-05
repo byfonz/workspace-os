@@ -2,17 +2,26 @@
 
 set -e
 
-launch_btop(){
-  ghostty -e "btop" C-m
+SESSION="system"
+
+create_tmux_session(){
+  if tmux has-session -t "$SESSION" 2>/dev/null; then
+    return
+  fi  
+
+  tmux new-session -d -s "$SESSION" -n "system"
+  tmux split-window -v -t "$SESSION":system
+  tmux send-keys -t "$SESSION":system.1 "btop" C-m
+  tmux send-keys -t "$SESSION":system.0 "fastfetch" C-m 
 }
 
-launch_fastfetch(){
-    ghostty -e "fastfetch" C-m 
+launch_tmux(){
+  ghostty -e tmux attach-session -t "$SESSION" &
 }
 
 main() {
-    launch_btop
-    launch_fastfetch
+  create_tmux_session
+  launch_tmux
 }
 
 main

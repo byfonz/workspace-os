@@ -37,7 +37,11 @@ launch_browser() {
   brave --new-tab "$REPOSITORY" &
 }
 
-create_tmux_session
-launch_editor
-launch_tmux
-launch_browser
+main() {
+  create_tmux_session
+  launch_editor
+  launch_tmux
+  launch_browser
+}
+
+main
