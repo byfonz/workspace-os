@@ -8,16 +8,25 @@
 # <<<<< TUI AUTO START
 monitor=desc:Acer Technologies KA272 A 23080A2BD3W01,1920x1080@60.00000,840x0,1.00000000,transform,1,vrr,0
 monitor=desc:Acer Technologies ED320QR S 2217001BD3W01,1920x1080@144.00101,1920x0,1.00000000,transform,0,vrr,0
-monitor=desc:BOE 0x0A81,disable
 # <<<<< TUI AUTO END
 
 {{- $vertical := index .MonitorsByTag "vertical" -}}
 {{- $main := index .MonitorsByTag "main" -}}
 
-# Workspace Assigment
+# Workspace Layout
+{{- if $vertical }}
 workspace = 1,monitor:{{$vertical.Name}}
+workspace = 7,monitor:{{$vertical.Name}}
+workspace = 8,monitor:{{$vertical.Name}}
+{{- end}}
+
+{{- if $main }}
 workspace = 2,monitor:{{$main.Name}}
 workspace = 3,monitor:{{$main.Name}}
 workspace = 4,monitor:{{$main.Name}}
 workspace = 5,monitor:{{$main.Name}}
 workspace = 6,monitor:{{$main.Name}}
+workspace = 9,monitor:{{$main.Name}}
+workspace = 10,monitor:{{$main.Name}}
+{{- end}}
+

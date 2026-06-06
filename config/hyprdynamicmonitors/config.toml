@@ -44,7 +44,7 @@ monitor_tag = "main"
 
 [profiles.laptop]
 config_file = "/home/ponchoio/.config/hyprdynamicmonitors/hyprconfigs/laptop.go.tmpl"
-config_file_type = "template"
+config_file_type = "static"
 [profiles.laptop.conditions]
 
 [[profiles.laptop.conditions.required_monitors]]

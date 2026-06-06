@@ -9,9 +9,10 @@ local notesWorkspace = "~/Workspace/workspace-os/scripts/notes_workspace"
 ---- AUTOSTART ----
 -------------------
 hl.on("hyprland.start", function()
+  hl.exec_cmd("kanshi")
   hl.exec_cmd("hyprpaper")
   hl.exec_cmd("waybar")
-  hl.exec_cmd(systemWorkspace)
-  hl.exec_cmd(codeWorkspace)
-  hl.exec_cmd(notesWorkspace)
+  hl.exec_cmd("sleep 2 && " .. systemWorkspace)
+  hl.exec_cmd("sleep 2 && " .. codeWorkspace)
+  hl.exec_cmd("sleep 2 && " .. notesWorkspace)
 end)
