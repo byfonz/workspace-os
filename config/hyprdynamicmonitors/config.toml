@@ -17,15 +17,15 @@ config_file_type = "template"
 
 [[profiles.workstation.conditions.required_monitors]]
 description = "Acer Technologies KA272 A 23080A2BD3W01"
-monitor_tag = "monitor0"
+monitor_tag = "vertical"
 
 [[profiles.workstation.conditions.required_monitors]]
 description = "Acer Technologies ED320QR S 2217001BD3W01"
-monitor_tag = "monitor1"
+monitor_tag = "main"
 
 [[profiles.workstation.conditions.required_monitors]]
 description = "BOE 0x0A81"
-monitor_tag = "monitor2"
+monitor_tag = "laptop"
 
 
 [profiles.dock]
@@ -35,15 +35,11 @@ config_file_type = "template"
 
 [[profiles.dock.conditions.required_monitors]]
 description = "Acer Technologies KA272 A 23080A2BD3W01"
-monitor_tag = "monitor0"
+monitor_tag = "vertical"
 
 [[profiles.dock.conditions.required_monitors]]
 description = "Acer Technologies ED320QR S 2217001BD3W01"
-monitor_tag = "monitor1"
-
-[[profiles.dock.conditions.required_monitors]]
-description = "BOE 0x0A81"
-monitor_tag = "monitor2"
+monitor_tag = "main"
 
 
 [profiles.laptop]
@@ -52,13 +48,5 @@ config_file_type = "template"
 [profiles.laptop.conditions]
 
 [[profiles.laptop.conditions.required_monitors]]
-description = "Acer Technologies KA272 A 23080A2BD3W01"
-monitor_tag = "monitor0"
-
-[[profiles.laptop.conditions.required_monitors]]
-description = "Acer Technologies ED320QR S 2217001BD3W01"
-monitor_tag = "monitor1"
-
-[[profiles.laptop.conditions.required_monitors]]
 description = "BOE 0x0A81"
-monitor_tag = "monitor2"
+monitor_tag = "laptop"
