@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+set -e 
+
+WHATSAPP="https://web.whatsapp.com"
+DISCORD="https://discord.com/app"
+GMAIL="https://gmail.com/mail"
+
+brave --app="$WHATSAPP" &
+brave --app="$DISCORD" &
+brave --app="$GMAIL" &

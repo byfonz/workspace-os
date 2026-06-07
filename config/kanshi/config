@@ -1,18 +1,21 @@
-# Laptop o
 profile laptop {
     output eDP-1 enable
 }
 
 profile dock {
-    output eDP-1 enable
-
+    #Laptop
+    output eDP-1 disable
+    #Vertical Monitor
     output DP-1 enable position 0,0 transform 90
+    #Main Monitor
     output HDMI-A-1 enable position 1080,0
 }
 
 profile workstation {
-    output eDP-1 disable
-
+    #Laptop
+    output eDP-1 enable
+    #Vertical Monitor
     output DP-1 enable position 0,0 transform 90
+    #Main Monitor
     output HDMI-A-1 enable position 1080,0
 }
