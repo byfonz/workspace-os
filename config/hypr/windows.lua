@@ -23,8 +23,11 @@ hl.window_rule({
   match = {
     class = "com.mitchellh.ghostty",
     title = "nvim",
-    workspace = "2",
   },
+  workspace = "2",
+  size = { 1206, 732 },
+  move = { 1094, 44 },
+  monitor = "HDMI-A-1",
 })
 
 hl.window_rule({
@@ -32,8 +35,21 @@ hl.window_rule({
   match = {
     class = "com.mitchellh.ghostty",
     title = "tmux",
-    workspace = "2",
   },
+  workspace = "2",
+  size = { 1206, 272 },
+  move = { 1094, 272 },
+})
+
+hl.window_rule({
+  name = "browser",
+  match = {
+    class = "",
+    title = "",
+  },
+  workspace = "2",
+  size = { 670, 1022 },
+  move = { 2317, 44 },
 })
 
 -- Workspace 4: Browser

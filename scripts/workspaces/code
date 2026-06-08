@@ -19,8 +19,8 @@ create_tmux_session() {
   tmux new-session -d -s "$SESSION" -c "$PROJECT" -n "frontend"
   tmux new-window -t "$SESSION" -n "backend" -c "$PROJECT"
   tmux new-window -t "$SESSION" -n "git" -c "$PROJECT"
-  tmux split-window -v -t "$SESSION":frontend -c "$PROJECT"
-  tmux split-window -v -t "$SESSION":backend -c "$PROJECT"
+  tmux split-window -h -t "$SESSION":frontend -c "$PROJECT"
+  tmux split-window -h -t "$SESSION":backend -c "$PROJECT"
 }
 
 launch_editor() {

@@ -2,17 +2,14 @@
 
 set -e
 
-launch_btop(){
-  ghostty -e btop 
-}
+GIF_NEURAL="$HOME/Workspace/workspace-os/assets/neural_cortex.gif"
+GIF_POND="$HOME/Workspace/workspace-os/assets/koi_pond.gif"
 
-launch_fastfetch(){
-  ghostty -e fastfetch
-}
+ghostty --class=system_matrix -e cmatrix -C magenta &
+ghostty --class=system_btop -e btop &
+ghostty --class=system_fastfetch -e fastfetch &
+ghostty --class=system_clock -e peaclock &
+ghostty --class=system_neural -e tplay -l "$GIF_NEURAL" &
+ghostty --class=system_pond -e tplay -l "$GIF_POND"&
 
-main() {
-  launch_btop
-  launch_fastfetch
-}
 
-main

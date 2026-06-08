@@ -8,9 +8,10 @@
 -- You can (and should!!) split this configuration into multiple files
 -- Create your files separately and then require them like this:
 -- require("myColors")
-require("workspaces")
 require("autostart")
 require("keybinds")
+require("workspaces")
+require("windows")
 
 -- Force correct GPU order (VERY IMPORTANT)
 --hl.env("AQ_DRM_DEVICES", "/dev/dri/by-path/pci-0000:01:00.0-card")
